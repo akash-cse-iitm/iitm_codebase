@@ -1,5 +1,5 @@
 // tuf: from striver's DSA sheet ~ (1F) : Learn the basic Recursion problems (9 problems)
-// 24/07/2026
+// 24/07/2026 & 26/07/2026
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -53,26 +53,79 @@ int sumOfN(int n)
     return n + sumOfN(n-1);
 }
 
+
+// ***** 26/07/2026 *****
+
+
 // Factorial of a given number
-unsigned long fact(int n)
+unsigned long long fact(int n)
 {
     if(n==1)
      return 1;
 
-    return n * fact(n-1);
+    return n*fact(n-1);
 }
 
 
 // Reverse an array
+void reverseArray(int arr[], int left, int right)
+{
+
+   if(left >= right)
+    return;
+
+    swap(arr[left], arr[right]);
+    reverseArray(arr, left+1, right-1);
+}
 
 // Check if String is Palindrome or Not
+bool isPalindrome(string str, int left, int right)
+{
+    if(left <= right)
+     return true;
+    if(str[left] != str[right])
+     return false;
+
+    return isPalindrome(str, left+1, right-1);
+}
+
 
 // Fibonacci Number
+int fib(int n)
+{
+    if(n==0)
+     return 0;
+    if(n==1)
+     return 1;
+
+    return  fib(n-1) +fib(n-2);
+}
 
 int main() {
     // printName("Hanuman", 5);
     // cout<<sumOfN(5);
-    cout<<"5! = "<<fact(5);
+    // cout<<"5! = "<<fact(5)<<endl;
+
+    // int arr[] = {1, 2, 3, 4, 5};
+
+    // reverseArray(arr, 0, 4);
+    // for(int i=0; i<5; i++)
+    //  cout<<arr[i]<<" ";
+
+    string s = "madam";
+    cout<<"Palindrome or Not: "<<isPalindrome(s, 0, s.length()-1)<<endl;
+
+    // cout<<"Fibonacci of 8 is "<<fib(8)<<endl;
+
+
+    cout<<endl;
+
+    // cout<<"6! = "<<fact(5)<<endl;
+
+
     
     return 0;
 }
+
+
+// 26/07/2026: solved 9 basic recursion problems
